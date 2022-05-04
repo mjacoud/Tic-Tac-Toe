@@ -1,0 +1,35 @@
+/**********RESET**********/
+
+*{
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+/********GLOBAL********/
+
+body{
+height: 100vh;
+width: 100vw;
+}
+
+/*******VARIABLES*****/
+
+
+/*****MIXINS******/
+@mixin flexbox-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  
+}
+
+/*********LAYOUT******/
+
+.bleed{
+  border: 1px solid red;
+}
+
+.modal-mode{
+  @include flexbox-center()
+}
