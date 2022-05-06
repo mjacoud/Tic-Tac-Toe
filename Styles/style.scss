@@ -126,6 +126,33 @@ width: 100vw;
         gap:30px;
         padding-top:30px;
       }
+   } }.modal-multiplayer{
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+
+    .player-1p{
+    display: flex;
+    flex-direction: column;
     }
+
+    .player-2p{
+      display: flex;
+      flex-direction: column;
     }
-  }
+
+    .modal-turns-container{
+      display: flex;
+      flex-direction: column;
+      
+      .modal-turns-title{
+        text-align: center;
+      }
+      .modal-turns-options{
+        padding:30px 0;
+        display: flex;
+        gap: 30px;
+        justify-content: center;
+        
+      }}}}
+  
