@@ -41,7 +41,7 @@ width: 100vw;
 }
 .modal-bg{
   @include modal-position();
-  display: FLEX;
+  display: flex;
 
   .modal-mode{
     display:NONE;
@@ -58,7 +58,7 @@ width: 100vw;
   }
 
   .modal-mode-container{
-    display: flex;
+    display: none;
     padding-top: 50px;
 
     .modal-select-btn{
@@ -67,5 +67,65 @@ width: 100vw;
       display: flex;
       justify-content: center;
       }
+    }
+    .modal-ai{
+      height: 400px;
+      width: 300px;
+      display: none;
+
+    .modal-ai-container{
+      height: 300px;
+      width: 300px;
+      display: none;
+      justify-content: flex-start;
+      align-items: center;
+      flex-direction: column;
+
+      .modal-ai-title{
+        font-size: 30px;
+        padding-bottom:30px;
+      }
+      .modal-symbol-container{
+        display: flex;
+        flex-direction: column ;
+      
+        .modal-symbol-title{
+          font-size: 24px;
+        }
+        
+        .modal-symbol-options{
+          display: flex;
+        gap:15px;
+        padding:20px 0;
+        justify-content: center;
+        }
+      }
+      .modal-turns-container{
+        display: flex;
+        flex-direction: column;
+        
+        .modal-turns-title{
+          text-align: center;
+        }
+        .modal-turns-options{
+          padding-top:30px;
+          display: flex;
+          gap: 30px;
+        }
+      }
+      .modal-difficult-container{
+        display: flex;
+        flex-direction: column;
+        padding-bottom: 30px;
+      }
+      .modal-difficult-title{
+        text-align: center;
+      }
+      .modal-select-options{
+        display: flex;
+        gap:30px;
+        padding-top:30px;
+      }
+    }
     }
   }
