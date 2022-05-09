@@ -16,6 +16,8 @@ width: 100vw;
 /*******VARIABLES*****/
 
 
+
+
 /*****MIXINS******/
 @mixin modal-position {
   height: 100vh;
@@ -37,17 +39,84 @@ width: 100vw;
 }
 
 .bleed2{
-  border:1px solid black
+  border:1px solid black;
+  background-color:green;
 }
+
+.header-container{
+  height: 7vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: beige;
+
+
+  .title{
+    text-align: center;
+    font-family: 'Roboto';
+  }
+}
+
+.container{
+  height: 90vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  .game-container{
+    display: grid;
+    grid-template-columns: repeat(3,70px);
+    grid-template-rows: repeat(3,70px);
+    grid-template-areas: "div1 div2 div3"
+                          "div4 div5 div6"
+                         "div7 div8 div9";
+    
+    #pos1{
+      grid-area: div1;
+      border-bottom:black 2px solid;
+    }
+    
+    #pos2{
+      grid-area: div2;
+      border-bottom:black 2px solid;
+      border-right:black 2px solid;
+      border-left:black 2px solid;
+    }
+    #pos3{
+      grid-area: div3;
+      border-bottom:black 2px solid;
+    }
+    #pos4{
+      grid-area:div4;
+      border-bottom:black 2px solid;
+    }
+    #pos5{
+      grid-area:div5;
+      border-bottom:black 2px solid;
+      border-right:black 2px solid;
+      border-left:black 2px solid;
+    }
+    #pos6{
+      grid-area:div6;
+      border-bottom:black 2px solid;
+    }
+    #pos8{
+      grid-area:div8;
+      border-right:black 2px solid;
+      border-left:black 2px solid;
+    }
+  }
+}
+/****MODAL BACKGROUND****/
 .modal-bg{
   @include modal-position();
   display: flex;
-
+/*******MODAL MODE*****/
   .modal-mode{
-    display:NONE;
+    display:flex;
     height:300px;
     width:300px;
-    background-color: red;
+    background-color:antiquewhite;
     justify-content: center;
     align-items: center;
     flex-direction: column;
@@ -55,10 +124,11 @@ width: 100vw;
 
   .modal-mode-title{
     font-size: 24px;
+    font-family: 'Roboto';
   }
 
   .modal-mode-container{
-    display: none;
+    display: flex;
     padding-top: 50px;
 
     .modal-select-btn{
@@ -67,7 +137,17 @@ width: 100vw;
       display: flex;
       justify-content: center;
       }
+
+    .ai{
+      cursor: pointer;
     }
+
+    .p2{
+      cursor: pointer;
+    }
+  }
+
+    /*****MODAL AI*****/
     .modal-ai{
       height: 400px;
       width: 300px;
@@ -126,10 +206,28 @@ width: 100vw;
         gap:30px;
         padding-top:30px;
       }
-   } }.modal-multiplayer{
-        display: flex;
-        justify-content: center;
-        flex-direction: column;
+   } }
+   
+   /*****MODAL MULTIPLAYER****/
+   .modal-multiplayer-form{
+     
+     display: none;
+     justify-content: center;
+     height: 350px;
+      background-color: antiquewhite;
+      width: 350px;
+
+    .modal-multiplayer{
+      display: flex;
+      justify-content: center;
+      flex-direction: column;
+      width: 250px;
+
+.modal-multiplayer-title{
+  font-size: 24px;
+  text-align: center;
+  padding-bottom: 40px;
+}
 
     .player-1p{
     display: flex;
@@ -151,8 +249,15 @@ width: 100vw;
       .modal-turns-options{
         padding:30px 0;
         display: flex;
-        gap: 30px;
         justify-content: center;
         
-      }}}}
+       .modal-turns-number{
+         width: 250px;
+         text-align: center;
+       } 
+      }}}}}
+      .footer{
+        display: flex;
+        justify-content: center;
+      }
   

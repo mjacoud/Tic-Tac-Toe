@@ -21,8 +21,106 @@ body {
 
 .bleed2 {
   border: 1px solid black;
+  background-color: green;
 }
 
+.header-container {
+  height: 7vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  background-color: beige;
+}
+
+.header-container .title {
+  text-align: center;
+  font-family: 'Roboto';
+}
+
+.container {
+  height: 90vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.container .game-container {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (70px)[3];
+      grid-template-columns: repeat(3, 70px);
+  -ms-grid-rows: (70px)[3];
+      grid-template-rows: repeat(3, 70px);
+      grid-template-areas: "div1 div2 div3" "div4 div5 div6" "div7 div8 div9";
+}
+
+.container .game-container #pos1 {
+  -ms-grid-row: 1;
+  -ms-grid-column: 1;
+  grid-area: div1;
+  border-bottom: black 2px solid;
+}
+
+.container .game-container #pos2 {
+  -ms-grid-row: 1;
+  -ms-grid-column: 2;
+  grid-area: div2;
+  border-bottom: black 2px solid;
+  border-right: black 2px solid;
+  border-left: black 2px solid;
+}
+
+.container .game-container #pos3 {
+  -ms-grid-row: 1;
+  -ms-grid-column: 3;
+  grid-area: div3;
+  border-bottom: black 2px solid;
+}
+
+.container .game-container #pos4 {
+  -ms-grid-row: 2;
+  -ms-grid-column: 1;
+  grid-area: div4;
+  border-bottom: black 2px solid;
+}
+
+.container .game-container #pos5 {
+  -ms-grid-row: 2;
+  -ms-grid-column: 2;
+  grid-area: div5;
+  border-bottom: black 2px solid;
+  border-right: black 2px solid;
+  border-left: black 2px solid;
+}
+
+.container .game-container #pos6 {
+  -ms-grid-row: 2;
+  -ms-grid-column: 3;
+  grid-area: div6;
+  border-bottom: black 2px solid;
+}
+
+.container .game-container #pos8 {
+  -ms-grid-row: 3;
+  -ms-grid-column: 2;
+  grid-area: div8;
+  border-right: black 2px solid;
+  border-left: black 2px solid;
+}
+
+/****MODAL BACKGROUND****/
 .modal-bg {
   height: 100vh;
   width: 100vw;
@@ -41,13 +139,18 @@ body {
       -ms-flex-align: center;
           align-items: center;
   display: flex;
+  /*******MODAL MODE*****/
+  /*****MODAL AI*****/
+  /*****MODAL MULTIPLAYER****/
 }
 
 .modal-bg .modal-mode {
-  display: NONE;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
   height: 300px;
   width: 300px;
-  background-color: red;
+  background-color: antiquewhite;
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
@@ -62,10 +165,13 @@ body {
 
 .modal-bg .modal-mode-title {
   font-size: 24px;
+  font-family: 'Roboto';
 }
 
 .modal-bg .modal-mode-container {
-  display: none;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
   padding-top: 50px;
 }
 
@@ -78,6 +184,14 @@ body {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
+}
+
+.modal-bg .modal-mode-container .ai {
+  cursor: pointer;
+}
+
+.modal-bg .modal-mode-container .p2 {
+  cursor: pointer;
 }
 
 .modal-bg .modal-ai {
@@ -177,7 +291,17 @@ body {
   padding-top: 30px;
 }
 
-.modal-bg .modal-multiplayer {
+.modal-bg .modal-multiplayer-form {
+  display: none;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  height: 350px;
+  background-color: antiquewhite;
+  width: 350px;
+}
+
+.modal-bg .modal-multiplayer-form .modal-multiplayer {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -188,9 +312,16 @@ body {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
+  width: 250px;
 }
 
-.modal-bg .modal-multiplayer .player-1p {
+.modal-bg .modal-multiplayer-form .modal-multiplayer .modal-multiplayer-title {
+  font-size: 24px;
+  text-align: center;
+  padding-bottom: 40px;
+}
+
+.modal-bg .modal-multiplayer-form .modal-multiplayer .player-1p {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -200,7 +331,7 @@ body {
           flex-direction: column;
 }
 
-.modal-bg .modal-multiplayer .player-2p {
+.modal-bg .modal-multiplayer-form .modal-multiplayer .player-2p {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -210,7 +341,7 @@ body {
           flex-direction: column;
 }
 
-.modal-bg .modal-multiplayer .modal-turns-container {
+.modal-bg .modal-multiplayer-form .modal-multiplayer .modal-turns-container {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -220,16 +351,29 @@ body {
           flex-direction: column;
 }
 
-.modal-bg .modal-multiplayer .modal-turns-container .modal-turns-title {
+.modal-bg .modal-multiplayer-form .modal-multiplayer .modal-turns-container .modal-turns-title {
   text-align: center;
 }
 
-.modal-bg .modal-multiplayer .modal-turns-container .modal-turns-options {
+.modal-bg .modal-multiplayer-form .modal-multiplayer .modal-turns-container .modal-turns-options {
   padding: 30px 0;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  gap: 30px;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.modal-bg .modal-multiplayer-form .modal-multiplayer .modal-turns-container .modal-turns-options .modal-turns-number {
+  width: 250px;
+  text-align: center;
+}
+
+.footer {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
