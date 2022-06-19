@@ -17,22 +17,24 @@ function modeListener() {
   })
 }
 /************MODAL Multiplayer ************* */
-var game_msg = document.querySelector('.game-msg')
-var player1_name = document.querySelector('#player1-name')
-var player2_name = document.querySelector('#player2-name')
-var multiplayer_modal = document.querySelector('#modal-select')
-var modal_bg = document.querySelector('.modal-bg')
-var player1_info = document.querySelector('.player1-container')
-var player2_info = document.querySelector('.player2-container')
-var player1_score = document.querySelector('.player1-score')
-var player2_score = document.querySelector('.player2-score')
+const game_msg = document.querySelector('.game-msg')
+const player1_name = document.querySelector('#player1-name')
+const player2_name = document.querySelector('#player2-name')
+const multiplayer_modal = document.querySelector('#modal-select')
+const modal_bg = document.querySelector('.modal-bg')
+const player1_info = document.querySelector('.player1-container')
+const player2_info = document.querySelector('.player2-container')
+var player1_score_text = document.querySelector('.player1-score')
+var player2_score_text = document.querySelector('.player2-score')
+let game_turns = 0
+let player1_score = 0
+let player2_score = 0
 
 function multiplayer_parameter() {
   multiplayer_modal.addEventListener('submit', function (e) {
-    var turns_number = document.querySelector(
+    const turns_number = document.querySelector(
       'input[name="turns"]:checked'
     ).value
-
     if (
       player1_name.value.length === 0 ||
       player2_name.value.length === 0 ||
@@ -45,8 +47,9 @@ function multiplayer_parameter() {
       modal_bg.style.display = 'none'
       player1_info.textContent = player1_name.value
       player2_info.textContent = player2_name.value
-      player1_score.textContent = 0
-      player2_score.textContent = 0
+      player1_score_text.textContent = 0
+      player2_score_text.textContent = 0
+      game_turns = turns_number
       game_msg.textContent = player1_name.value + " Turn's"
       game()
     }
@@ -263,11 +266,12 @@ function win_condition() {
       pos9.textContent == 'X')
   ) {
     game_msg.textContent = player1_name.value + ' Wins'
-    player1_score.textContent += 1
+    player1_score += 1
+    player1_score_text.textContent = player1_score
     reset_board()
     game()
-    if (player1_score >= turns_number) {
-      game_msg.textContent = 'GAME OVER' + player1_name.value + 'is the Winner'
+    if (player1_score >= game_turns) {
+      game_msg.textContent = 'GAME OVER ' + player1_name.value + 'is the Winner'
     }
   } else if (
     (pos1.textContent == 'O' &&
@@ -295,12 +299,13 @@ function win_condition() {
       pos8.textContent == 'O' &&
       pos9.textContent == 'O')
   ) {
-    game_msg.textContent = player1_name.value + ' Wins'
-    player2_score.textContent += 1
+    game_msg.textContent = player2_name.value + ' Wins'
+    player2_score += 1
+    player2_score_text.textContent = player2_score
     reset_board()
     game()
-    if (player2_score >= turns_number) {
-      game_msg.textContent = 'GAME OVER' + player2_name.value + 'is the Winner'
+    if (player2_score >= game_turns) {
+      game_msg.textContent = 'GAME OVER ' + player2_name.value + 'is the Winner'
     }
   } else if (
     pos1.textContent != '' &&
